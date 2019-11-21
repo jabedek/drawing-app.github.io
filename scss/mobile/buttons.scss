@@ -1,0 +1,124 @@
+/* BUTTON AND CLEAR BUTTON */
+.buttons {
+  display: flex;
+  width: 40vw;
+  justify-content: center;
+  justify-content: space-evenly;
+
+  @media (max-width: 650px) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: auto;
+  }
+}
+
+.my-button {
+  color: #fff;
+  background-color: rgba(150, 50, 255, 1);
+  border-radius: 0.12em;
+  font-size: 1rem;
+  line-height: 1rem;
+
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+  position: relative;
+
+  display: block;
+  padding: 0.5em 0.9em;
+  transition: filter 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+    filter: hue-rotate(-20deg);
+  }
+
+  @media (max-width: 900px) {
+    padding: 0.4 0.8em;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 800px) {
+    padding: 0.3 0.6em;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 650px) {
+    width: 18vw;
+    text-align: center;
+  }
+
+  @media (max-width: 550px) {
+    font-size: 0.8rem;
+    padding: 0.25em 0.5em;
+    width: 19vw;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 0.9rem;
+    padding: 0.2em;
+    width: 19vw;
+  }
+}
+
+.spin {
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* DOWNLOAD BUTTON */
+.download-btn {
+  display: block;
+}
+
+.slide-down {
+  animation: slide-down 3s linear infinite;
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-50%);
+  }
+  25% {
+    transform: translateY(-25%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+  75% {
+    transform: translateY(25%);
+  }
+  100% {
+    transform: translateY(50%);
+  }
+}
+
+/* icons */
+
+i#my-download-icon,
+i#my-clear-icon {
+  @media (max-width: 800px) {
+    display: none;
+    &::before {
+      content: '';
+    }
+  }
+}
+
+.word-part {
+  @media (max-width: 450px) {
+    display: none;
+  }
+}
+
+// .word-part2 {
+//   @media (max-width: 450px) {
+//     display: none;
+//   }
+// }

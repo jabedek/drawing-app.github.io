@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drawing App</title>
+    <link rel="stylesheet" href="dist/css/mobile/index.css" />
+    <script
+      src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+      type="text/javascript"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body onload="initCanvas()">
+    <div class="app">
+      <canvas id="myCanvas" class="canvas"></canvas>
+
+      <div class="tools">
+        <ul class="color-palette">
+          <li class="color__label">
+            <p
+              class="color"
+              id="color0"
+              style="background-color:firebrick"
+              onclick="pickColor('firebrick', this)"
+            ></p>
+          </li>
+
+          <li class="color__label">
+            <p
+              class="color"
+              id="color1"
+              style="background-color:royalblue"
+              onclick="pickColor('royalblue', this)"
+            ></p>
+          </li>
+
+          <li class="color__label">
+            <p
+              class="color color--picked"
+              id="color2"
+              style="background-color:black"
+              onclick="pickColor('black', this)"
+            ></p>
+          </li>
+
+          <li class="color__label">
+            <p
+              class="color"
+              id="color3"
+              style="background-color:gold"
+              onclick="pickColor('gold', this)"
+            ></p>
+          </li>
+
+          <li class="color__label">
+            <p
+              class="color"
+              id="color4"
+              style="background-color:#fff"
+              onclick="pickColor('#fff', this)"
+            ></p>
+          </li>
+
+          <li class="color__label">
+            <p
+              class="color"
+              id="color5"
+              style="background-color:seagreen"
+              onclick="pickColor('seagreen', this)"
+            ></p>
+          </li>
+        </ul>
+
+        <label class="brush-palette">
+          <p>Brush size: <span id="brushSize">5</span></p>
+          <input
+            type="range"
+            min="1"
+            max="11"
+            value="5"
+            step="2"
+            class="slider"
+            id="myRange"
+          />
+        </label>
+
+        <div class="buttons">
+          <a id="clearBtn" class="my-button"
+            ><i id="my-clear-icon" class="my-icon icon sync alternate  "></i>
+            clear <span class="word-part">area</span></a
+          >
+
+          <a id="downloadBtn" class="my-button"
+            ><i
+              id="my-download-icon"
+              class="my-icon icon arrow down download-btn "
+            ></i>
+            save<span class="word-part"> image</span></a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
+</html>

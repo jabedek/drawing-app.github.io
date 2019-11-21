@@ -1,0 +1,110 @@
+@import './color-palette.scss';
+@import './range-slider.scss';
+@import './buttons.scss';
+
+$color: white;
+$bg-color-primary: #444;
+$bg-color-secondary: #555;
+
+html,
+body,
+.app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $color;
+  font-family: 'Roboto Light';
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+.canvas {
+  border-bottom: 0.125rem solid #333;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  background: $bg-color-primary;
+  display: flex;
+  flex-direction: column;
+}
+
+.tools {
+  margin: 0.6em 0;
+  padding: 0;
+
+  display: flex;
+  height: 15%;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  background: $bg-color-secondary;
+}
+
+// a.my-button {
+//   color: #fff;
+//   background-color: rgba(150, 50, 255, 1);
+//   border-radius: 0.12em;
+//   font-size: 1rem;
+//   line-height: 1rem;
+
+//   box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+//   position: relative;
+
+//   display: inline-block;
+//   padding: 0.5em 0.9em;
+//   transition: filter 0.3s ease-in-out;
+//   cursor: pointer;
+
+//   &:hover {
+//     color: #fff;
+//     filter: hue-rotate(-20deg);
+//   }
+// }
+
+// .spin {
+//   animation: spin 5s linear infinite;
+// }
+
+// @keyframes spin {
+//   100% {
+//     -webkit-transform: rotate(360deg);
+//     transform: rotate(360deg);
+//   }
+// }
+
+// .download-btn {
+//   display: block;
+// }
+
+// .slide-down {
+//   animation: slide-down 3s linear infinite;
+// }
+
+// @keyframes slide-down {
+//   0% {
+//     transform: translateY(-50%);
+//   }
+//   25% {
+//     transform: translateY(-25%);
+//   }
+//   50% {
+//     transform: translateY(0%);
+//   }
+//   75% {
+//     transform: translateY(25%);
+//   }
+//   100% {
+//     transform: translateY(50%);
+//   }
+// }
