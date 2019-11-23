@@ -5,18 +5,66 @@ let canvasCtx;
 let brushColor = '#000';
 let brushSize = 5;
 
-function initCanvas() {
-  /* ### CANVAS ### */
+function initApp() {
+  /* mouse position display setup */
+  let mousePos = document.getElementById('mousePos');
+  mousePos.style = 'display: block;';
+
+  window.addEventListener('touchmove', e => {
+    let touchX = (e.touches[0].pageX + '').substr(0, 7);
+    let touchY = (e.touches[0].pageY + '').substr(0, 7);
+    let pos = 'X:' + touchX + '\n' + 'Y:' + touchY;
+    mousePos.innerHTML = pos;
+  });
+
+  window.addEventListener('mousemove', e => {
+    let pos = 'X:' + e.pageX + '\n' + 'Y:' + e.pageY;
+    mousePos.innerHTML = pos;
+  });
+
+  /* set canvas size */
   canvas = document.getElementById('myCanvas');
+  canvasCtx = canvas.getContext('2d');
+
+  if (window.screen.width <= 500) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight / 0.65;
+  } else {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight / 1.2;
+  }
+
+  window.onresize = e => {
+    if (window.screen.width <= 500) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight * 0.65;
+    } else {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight / 1.2;
+    }
+  };
+
+  /* Canvas: set touch events*/
+  canvas.addEventListener(
+    'touchmove',
+    function(e) {
+      console.log('touchmove');
+      var touch = e.touches[0];
+      var mouseEvent = new MouseEvent('mousemove', {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+      });
+      canvas.dispatchEvent(mouseEvent);
+    },
+    false
+  );
 
   canvas.addEventListener(
     'touchstart',
+
     function(e) {
       mousePressed = true;
-      console.log(
-        '%cMOUSE DOWN',
-        "background: #111; font-family:'Roboto Light'; font-weight: bold; color:white"
-      );
+      console.log('touchstart');
 
       draw(
         e.pageX - $(this).offset().left,
@@ -30,14 +78,19 @@ function initCanvas() {
     'touchend',
     function(e) {
       mousePressed = false;
-      console.log(
-        '%cMOUSE UP',
-        "background: #111; font-family:'Roboto Light'; font-weight: bold; color:white"
-      );
+      console.log('touchend');
     },
     false
   );
-  // canvas.addEventListener('touchcancel', handleCancel, false);
+
+  canvas.addEventListener(
+    'touchcancel',
+    function(e) {
+      mousePressed = false;
+    },
+    false
+  );
+
   canvas.addEventListener(
     'touchmove',
     function(e) {
@@ -52,29 +105,8 @@ function initCanvas() {
     false
   );
 
-  canvasCtx = canvas.getContext('2d');
-
-  // canvasCtc.canvas.width = window.innerWidth;
-  // canvasCtc. height = window.innerHeight / 1.22;
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight / 1.22;
-
-  window.onresize = e => {
-    // console.log(window.innerWidth, window.innerHeight, 'DUPA');
-    if (window.innerWidth == 980) {
-      console.log('== 980');
-
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight / 2;
-    } else {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight / 1.22;
-    }
-  };
-
-  // console.log(canvas.getBoundingClientRect());
-  /* attach mouse events to canvas */
-  $('#myCanvas').mousedown(function(e) {
+  /* Canvas: set mouse events*/
+  canvas.addEventListener('mousedown', function(e) {
     mousePressed = true;
     console.log(
       '%cMOUSE DOWN',
@@ -88,7 +120,7 @@ function initCanvas() {
     );
   });
 
-  $('#myCanvas').mousemove(function(e) {
+  canvas.addEventListener('mousemove', function(e) {
     if (mousePressed) {
       draw(
         e.pageX - $(this).offset().left,
@@ -98,7 +130,7 @@ function initCanvas() {
     }
   });
 
-  $('#myCanvas').mouseup(function(e) {
+  canvas.addEventListener('mouseup', function(e) {
     mousePressed = false;
     console.log(
       '%cMOUSE UP',
@@ -106,7 +138,7 @@ function initCanvas() {
     );
   });
 
-  $('#myCanvas').mouseleave(function(e) {
+  canvas.addEventListener('mouseleave', function(e) {
     mousePressed = false;
   });
 

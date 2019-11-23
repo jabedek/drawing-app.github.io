@@ -2,6 +2,39 @@ $color: white;
 $bg-color-primary: #444;
 $bg-color-secondary: #555;
 
+.brush-palette {
+  background: $bg-color-secondary;
+  // border: 0.2em solid #fff;
+
+  color: $color;
+
+  padding: 0.5em 1em 0.25em;
+  width: 25%;
+
+  text-align: center;
+  font-size: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  p {
+    text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 900px) {
+    padding: 0.4em 0.8em 0.2em;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 650px) {
+    font-size: 0.75rem;
+    padding: 0;
+  }
+}
+
 .slider {
   -webkit-appearance: none;
   width: 20vw;
@@ -63,38 +96,5 @@ $bg-color-secondary: #555;
   @media (max-width: 450px) {
     width: 1.6rem;
     height: 1.6rem;
-  }
-}
-
-.brush-palette {
-  background: $bg-color-secondary;
-  // border: 0.2em solid #fff;
-
-  color: $color;
-
-  padding: 0.5em 1em 0.25em;
-  width: 25%;
-
-  text-align: center;
-  font-size: 1rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-
-  p {
-    text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
-  }
-
-  @media (max-width: 900px) {
-    padding: 0.4em 0.8em 0.2em;
-    font-size: 0.9rem;
-  }
-
-  @media (max-width: 650px) {
-    font-size: 0.75rem;
-    padding: 0;
   }
 }

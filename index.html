@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>Drawing App</title>
-    <link rel="stylesheet" href="dist/css/mobile/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dist/css/index.css" />
     <script
       src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
       type="text/javascript"
@@ -16,11 +17,12 @@
       rel="stylesheet"
     />
   </head>
-  <body onload="initCanvas()">
+  <body onload="initApp()">
+    <b class="mousePos" id="mousePos"></b>
     <div class="app">
       <canvas id="myCanvas" class="canvas"></canvas>
 
-      <div class="tools">
+      <div class="user-interface">
         <ul class="color-palette">
           <li class="color__label">
             <p
@@ -76,7 +78,6 @@
             ></p>
           </li>
         </ul>
-
         <label class="brush-palette">
           <p>Brush size: <span id="brushSize">5</span></p>
           <input

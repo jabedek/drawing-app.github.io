@@ -1,0 +1,20 @@
+$color: white;
+$bg-color-primary: #444;
+$bg-color-secondary: #555;
+
+.user-interface {
+  margin: 0.6em 0;
+  padding: 0;
+
+  display: flex;
+  height: 15%;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  background: $bg-color-secondary;
+
+  @media (max-width: 500px) {
+    height: 50%;
+  }
+}

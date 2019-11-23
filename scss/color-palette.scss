@@ -12,6 +12,8 @@
   margin: 0;
   padding: 0;
 
+  // margin: 0 10em 0 1em;
+
   @media (max-width: 950px) {
     flex-wrap: wrap;
     min-width: 9vw;
@@ -91,9 +93,6 @@
   }
 
   @media (max-width: 450px) {
-    // margin: 0.2em;
-    // padding: 1em;
-    // margin: 0.2em;
     padding: 0.65em;
   }
 }
@@ -101,9 +100,6 @@
 .color--picked {
   height: 1.5rem;
   width: 1.5rem;
-
-  // max-height: 1.7rem;
-  // max-width: 1.7rem;
 
   margin: 0.5em;
 
@@ -115,7 +111,3 @@
     transform: scale(1.2, 1.2);
   }
 }
-
-// .color__label {
-
-// }
