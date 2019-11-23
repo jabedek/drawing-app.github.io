@@ -26,23 +26,31 @@ function initApp() {
   canvas = document.getElementById('myCanvas');
   canvasCtx = canvas.getContext('2d');
 
-  if (window.screen.width <= 500) {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight / 0.65;
-  } else {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight / 1.2;
-  }
+  // let screenType = 'desktop';
 
-  window.onresize = e => {
-    if (window.screen.width <= 500) {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight * 0.65;
-    } else {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight / 1.2;
-    }
-  };
+  // if (window.screen.width <= 500) {
+  //   canvas.width = window.innerWidth;
+  //   canvas.height = window.innerHeight / 0.65;
+  //   screenType = 'mobile';
+  // } else {
+  //   canvas.width = window.innerWidth;
+  //   canvas.height = window.innerHeight / 1.2;
+  //   screenType = 'desktop';
+  // }
+  // console.log(screenType);
+
+  // window.onresize = e => {
+  //   if (window.screen.width <= 500) {
+  //     canvas.width = window.innerWidth;
+  //     canvas.height = window.innerHeight * 0.65;
+  //     screenType = 'mobile';
+  //   } else {
+  //     canvas.width = window.innerWidth;
+  //     canvas.height = window.innerHeight / 1.2;
+  //     screenType = 'desktop';
+  //   }
+  //   console.log(screenType);
+  // };
 
   /* Canvas: set touch events*/
   canvas.addEventListener(
