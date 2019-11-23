@@ -25,3 +25,10 @@ body,
   font-family: 'Roboto Light';
   text-transform: uppercase;
 }
+
+.appVersion {
+  display: none;
+  position: absolute;
+  background: yellow;
+  white-space: pre-wrap;
+}
