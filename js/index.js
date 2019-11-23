@@ -26,31 +26,27 @@ function initApp() {
   canvas = document.getElementById('myCanvas');
   canvasCtx = canvas.getContext('2d');
 
-  // let screenType = 'desktop';
+  if (window.screen.width <= 500) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight * 0.65;
+    console.log('start: mobile', canvas.height);
+  } else {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight / 1.2;
+    console.log('start: desktop');
+  }
 
-  // if (window.screen.width <= 500) {
-  //   canvas.width = window.innerWidth;
-  //   canvas.height = window.innerHeight / 0.65;
-  //   screenType = 'mobile';
-  // } else {
-  //   canvas.width = window.innerWidth;
-  //   canvas.height = window.innerHeight / 1.2;
-  //   screenType = 'desktop';
-  // }
-  // console.log(screenType);
-
-  // window.onresize = e => {
-  //   if (window.screen.width <= 500) {
-  //     canvas.width = window.innerWidth;
-  //     canvas.height = window.innerHeight * 0.65;
-  //     screenType = 'mobile';
-  //   } else {
-  //     canvas.width = window.innerWidth;
-  //     canvas.height = window.innerHeight / 1.2;
-  //     screenType = 'desktop';
-  //   }
-  //   console.log(screenType);
-  // };
+  window.onresize = e => {
+    if (window.screen.width <= 500) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight * 0.65;
+      console.log('mobile');
+    } else {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight / 1.2;
+      console.log('desktop');
+    }
+  };
 
   /* Canvas: set touch events*/
   canvas.addEventListener(
