@@ -34,14 +34,14 @@ body,
 }
 
 .display {
-  margin: 0.2rem;
+  margin: 0.25rem;
   border-radius: 0.1rem;
-  opacity: 0.75;
+  opacity: 0.65;
+  position: absolute;
 }
 
 .mousePos {
   display: none;
-  position: absolute;
   background: #ddd;
   white-space: pre-wrap;
   font-size: 1rem;
@@ -52,7 +52,6 @@ body,
 
 .viewport {
   display: none;
-  position: absolute;
   background: #ddd;
   white-space: pre-wrap;
   font-size: 1rem;
@@ -62,8 +61,13 @@ body,
 
 .appVersion {
   display: none;
-  position: absolute;
   right: 0;
   background: yellow;
   white-space: pre-wrap;
+}
+
+.fullscreen {
+  background: blue;
+  z-index: 2;
+  opacity: 1;
 }
