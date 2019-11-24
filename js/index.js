@@ -11,8 +11,8 @@ function initApp() {
   mousePos.style = 'display: block;';
 
   window.addEventListener('touchmove', e => {
-    let touchX = (e.touches[0].pageX + '').substr(0, 7);
-    let touchY = (e.touches[0].pageY + '').substr(0, 7);
+    let touchX = (e.touches[0].pageX + '').substr(0, 3);
+    let touchY = (e.touches[0].pageY + '').substr(0, 3);
     let pos = 'X:' + touchX + '\n' + 'Y:' + touchY;
     mousePos.innerHTML = pos;
   });
@@ -43,67 +43,6 @@ function initApp() {
       canvas.height = window.innerHeight / 1.2;
     }
   };
-
-  /* Canvas: set touch events*/
-  canvas.addEventListener(
-    'touchmove',
-    function(e) {
-      console.log('touchmove');
-      var touch = e.touches[0];
-      var mouseEvent = new MouseEvent('mousemove', {
-        clientX: touch.clientX,
-        clientY: touch.clientY
-      });
-      canvas.dispatchEvent(mouseEvent);
-    },
-    false
-  );
-
-  canvas.addEventListener(
-    'touchstart',
-    function(e) {
-      mousePressed = true;
-      console.log('touchstart');
-
-      draw(
-        e.pageX - $(this).offset().left,
-        e.pageY - $(this).offset().top,
-        false
-      );
-    },
-    false
-  );
-
-  canvas.addEventListener(
-    'touchend',
-    function(e) {
-      mousePressed = false;
-      console.log('touchend');
-    },
-    false
-  );
-
-  canvas.addEventListener(
-    'touchcancel',
-    function(e) {
-      mousePressed = false;
-    },
-    false
-  );
-
-  canvas.addEventListener(
-    'touchmove',
-    function(e) {
-      if (mousePressed) {
-        draw(
-          e.pageX - $(this).offset().left,
-          e.pageY - $(this).offset().top,
-          true
-        );
-      }
-    },
-    false
-  );
 
   /* Canvas: set mouse events*/
   canvas.addEventListener('mousedown', function(e) {
@@ -141,6 +80,53 @@ function initApp() {
   canvas.addEventListener('mouseleave', function(e) {
     mousePressed = false;
   });
+
+  /* Canvas: set touch events*/
+  canvas.addEventListener('touchstart', function(e) {
+    mousePressed = true;
+    console.log('touchstart');
+
+    let touch = e.touches[0];
+    let mouseEvent = new MouseEvent('mousedown', {
+      clientX: touch.clientX,
+      clientY: touch.clientY
+    });
+
+    canvas.dispatchEvent(mouseEvent);
+  });
+
+  canvas.addEventListener(
+    'touchmove',
+
+    function(e) {
+      console.log('touchmove');
+
+      let touch = e.touches[0];
+      let mouseEvent = new MouseEvent('mousemove', {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+      });
+
+      canvas.dispatchEvent(mouseEvent);
+    }
+  );
+
+  canvas.addEventListener(
+    'touchend',
+    function(e) {
+      mousePressed = false;
+      console.log('touchend');
+    },
+    false
+  );
+
+  canvas.addEventListener(
+    'touchcancel',
+    function(e) {
+      mousePressed = false;
+    },
+    false
+  );
 
   /* CLEAR button events */
   let clearBtn = document.getElementById('clearBtn');
