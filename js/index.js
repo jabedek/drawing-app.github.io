@@ -6,7 +6,10 @@ let brushColor = '#000';
 let brushSize = 5;
 
 function initApp() {
-  document.getElementById('fullscreen').onclick(e => window.scrollTo(0, 1));
+  document.getElementById('fullscreen').addEventListener('click', e => {
+    console.log('dupa');
+    window.scrollTo(0, 1);
+  });
 
   setDisplays();
 
