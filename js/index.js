@@ -6,6 +6,8 @@ let brushColor = '#000';
 let brushSize = 5;
 
 function initApp() {
+  document.getElementById('fullscreen').onclick(e => window.scrollTo(0, 1));
+
   setDisplays();
 
   window.addEventListener('touchmove', e => {
