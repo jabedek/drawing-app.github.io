@@ -6,19 +6,7 @@ let brushColor = '#000';
 let brushSize = 5;
 
 function initApp() {
-  setDisplays();
-
-  window.addEventListener('touchmove', e => {
-    let touchX = (e.touches[0].pageX + '').substr(0, 7);
-    let touchY = (e.touches[0].pageY + '').substr(0, 7);
-    let pos = 'brush position:\n' + touchX + ' / ' + touchY;
-    mousePos.innerHTML = pos;
-  });
-
-  window.addEventListener('mousemove', e => {
-    let pos = 'brush position:\n' + e.pageX + ' / ' + e.pageY;
-    mousePos.innerHTML = pos;
-  });
+  // setDisplays();
 
   /* set canvas size */
   canvas = document.getElementById('myCanvas');
@@ -193,7 +181,6 @@ function draw(x, y, isDrawing) {
 }
 
 function setDisplays() {
-  /* app version, mouse position, viewport displays setup */
   let appVersion = document.getElementById('appVersion');
   appVersion.style = 'display: block;';
 
@@ -205,6 +192,18 @@ function setDisplays() {
   viewport.style = 'display: block;';
   viewport.innerHTML =
     'viewport:\n' + window.innerHeight + 'px / ' + window.innerWidth + 'px';
+
+  window.addEventListener('touchmove', e => {
+    let touchX = (e.touches[0].pageX + '').substr(0, 7);
+    let touchY = (e.touches[0].pageY + '').substr(0, 7);
+    let pos = 'brush position:\n' + touchX + ' / ' + touchY;
+    mousePos.innerHTML = pos;
+  });
+
+  window.addEventListener('mousemove', e => {
+    let pos = 'brush position:\n' + e.pageX + ' / ' + e.pageY;
+    mousePos.innerHTML = pos;
+  });
 }
 
 function canvasResize() {
@@ -219,6 +218,8 @@ function canvasResize() {
   document.getElementById('viewport').innerHTML =
     'viewport:\n' + window.innerHeight + 'px / ' + window.innerWidth + 'px';
 }
+
+function canvasAddEvents() {}
 
 function clearArea() {
   // Use the identity matrix while clearing the canvas
