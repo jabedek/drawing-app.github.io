@@ -6,58 +6,25 @@ let brushColor = '#000';
 let brushSize = 5;
 
 function initApp() {
-  /* app version, mouse position, viewport displays setup */
-  let appVersion = document.getElementById('appVersion');
-  appVersion.style = 'display: block;';
-
-  let mousePos = document.getElementById('mousePos');
-  mousePos.style = 'display: block;';
-
-  let viewport = document.getElementById('viewport');
-  viewport.style = 'display: block;';
-
-  let viewportInfo =
-    'viewport window size: ' +
-    window.innerHeight +
-    'px / ' +
-    window.innerWidth +
-    'px';
-
-  viewport.innerHTML = viewportInfo;
+  setDisplays();
 
   window.addEventListener('touchmove', e => {
     let touchX = (e.touches[0].pageX + '').substr(0, 7);
     let touchY = (e.touches[0].pageY + '').substr(0, 7);
-    let pos = 'X:' + touchX + '\n' + 'Y:' + touchY;
+    let pos = 'brush position:\n' + touchX + ' / ' + touchY;
     mousePos.innerHTML = pos;
   });
 
   window.addEventListener('mousemove', e => {
-    let pos = 'X:' + e.pageX + '\n' + 'Y:' + e.pageY;
+    let pos = 'brush position:\n' + e.pageX + ' / ' + e.pageY;
     mousePos.innerHTML = pos;
   });
 
   /* set canvas size */
   canvas = document.getElementById('myCanvas');
   canvasCtx = canvas.getContext('2d');
-
-  if (window.screen.width <= 600) {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight * 0.65;
-  } else {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight / 1.2;
-  }
-
-  window.onresize = e => {
-    if (window.screen.width <= 600) {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight * 0.65;
-    } else {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight / 1.2;
-    }
-  };
+  canvasResize();
+  window.onresize = canvasResize;
 
   /* Canvas: set mouse events*/
   canvas.addEventListener('mousedown', function(e) {
@@ -223,6 +190,34 @@ function draw(x, y, isDrawing) {
 
   lastX = x;
   lastY = y;
+}
+
+function setDisplays() {
+  /* app version, mouse position, viewport displays setup */
+  let appVersion = document.getElementById('appVersion');
+  appVersion.style = 'display: block;';
+
+  let mousePos = document.getElementById('mousePos');
+  mousePos.style = 'display: block;';
+  mousePos.innerHTML = 'brush position:\n' + 0 + ' / ' + 0;
+
+  let viewport = document.getElementById('viewport');
+  viewport.style = 'display: block;';
+  viewport.innerHTML =
+    'viewport:\n' + window.innerHeight + 'px / ' + window.innerWidth + 'px';
+}
+
+function canvasResize() {
+  if (window.screen.width <= 600) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight * 0.65;
+  } else {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight / 1.2;
+  }
+
+  document.getElementById('viewport').innerHTML =
+    'viewport:\n' + window.innerHeight + 'px / ' + window.innerWidth + 'px';
 }
 
 function clearArea() {
