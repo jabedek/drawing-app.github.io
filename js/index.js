@@ -6,11 +6,6 @@ let brushColor = '#000';
 let brushSize = 5;
 
 function initApp() {
-  document.getElementById('fullscreen').addEventListener('click', e => {
-    console.log('dupa');
-    window.scrollTo(0, 1);
-  });
-
   setDisplays();
 
   window.addEventListener('touchmove', e => {
@@ -34,10 +29,10 @@ function initApp() {
   /* Canvas: set mouse events*/
   canvas.addEventListener('mousedown', function(e) {
     mousePressed = true;
-    console.log(
-      '%cMOUSE DOWN',
-      "background: #111; font-family:'Roboto Light'; font-weight: bold; color:white"
-    );
+    // console.log(
+    //   '%cMOUSE DOWN',
+    //   "background: #111; font-family:'Roboto Light'; font-weight: bold; color:white"
+    // );
 
     draw(
       e.pageX - $(this).offset().left,
@@ -58,10 +53,10 @@ function initApp() {
 
   canvas.addEventListener('mouseup', function(e) {
     mousePressed = false;
-    console.log(
-      '%cMOUSE UP',
-      "background: #111; font-family:'Roboto Light'; font-weight: bold; color:white"
-    );
+    // console.log(
+    //   '%cMOUSE UP',
+    //   "background: #111; font-family:'Roboto Light'; font-weight: bold; color:white"
+    // );
   });
 
   canvas.addEventListener('mouseleave', function(e) {
@@ -71,7 +66,7 @@ function initApp() {
   /* Canvas: set touch events*/
   canvas.addEventListener('touchstart', function(e) {
     mousePressed = true;
-    console.log('touchstart');
+    // console.log('touchstart');
 
     let touch = e.touches[0];
     let mouseEvent = new MouseEvent('mousedown', {
@@ -86,7 +81,7 @@ function initApp() {
     'touchmove',
 
     function(e) {
-      console.log('touchmove');
+      // console.log('touchmove');
 
       let touch = e.touches[0];
       let mouseEvent = new MouseEvent('mousemove', {
@@ -102,7 +97,7 @@ function initApp() {
     'touchend',
     function(e) {
       mousePressed = false;
-      console.log('touchend');
+      // console.log('touchend');
     },
     false
   );
@@ -151,10 +146,10 @@ function initApp() {
   saveBtn.addEventListener(
     'click',
     function(ev) {
-      console.log(
-        '%cSAVING',
-        "background: firebrick; font-family:'Roboto Light'; font-weight: bold; color:white"
-      );
+      // console.log(
+      //   '%cSAVING',
+      //   "background: firebrick; font-family:'Roboto Light'; font-weight: bold; color:white"
+      // );
       saveBtn.href = canvas.toDataURL('image/png');
       saveBtn.download = 'image.png';
     },
@@ -179,15 +174,15 @@ function draw(x, y, isDrawing) {
     canvasCtx.lineTo(x, y);
 
     /* Log brush trace */
-    console.info(
-      `%c ${lastX}, ${lastY} %c=>%c ${x}, ${y} `,
+    // console.info(
+    //   `%c ${lastX}, ${lastY} %c=>%c ${x}, ${y} `,
 
-      "background: #transparent; color: white; font-family:'Roboto Light'; font-weight: bold",
+    //   "background: #transparent; color: white; font-family:'Roboto Light'; font-weight: bold",
 
-      'background: #transparent; color: rgba(255, 60, 10, 1); font-family:inherit; font-weight: bold',
+    //   'background: #transparent; color: rgba(255, 60, 10, 1); font-family:inherit; font-weight: bold',
 
-      "background: #transparent; color: white; font-family:'Roboto Light'; font-weight: bold"
-    );
+    //   "background: #transparent; color: white; font-family:'Roboto Light'; font-weight: bold"
+    // );
 
     canvasCtx.closePath();
     canvasCtx.stroke();
