@@ -107,6 +107,11 @@
     padding: 1.45em;
     margin: 0.15rem;
   }
+
+  @media (max-width: 350px) {
+    padding: 1.4em;
+    margin: 0.15rem;
+  }
 }
 
 .color--picked {
