@@ -6,15 +6,6 @@ let brushColor = '#000';
 let brushSize = 5;
 
 function initApp() {
-  let goFS = document.getElementById('fullscreen');
-  goFS.addEventListener(
-    'click',
-    function() {
-      document.body.requestFullscreen();
-    },
-    false
-  );
-
   setDisplays();
 
   window.addEventListener('touchmove', e => {
