@@ -1,1 +1,1 @@
-.canvas{border:1px solid red;border-bottom:.125rem solid #333;box-sizing:border-box;margin:0;padding:0}.mousePos{display:none;position:absolute;background:#ddd;white-space:pre-wrap}
+.canvas{border-bottom:.11rem solid #333;box-sizing:border-box;margin:0;padding:0}.mousePos{display:none;position:absolute;background:#ddd;white-space:pre-wrap;font-size:1rem;padding:.25em;line-height:1rem}

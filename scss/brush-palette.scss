@@ -4,8 +4,6 @@ $bg-color-secondary: #555;
 
 .brush-palette {
   background: $bg-color-secondary;
-  // border: 0.2em solid #fff;
-
   color: $color;
 
   padding: 0.5em 1em 0.25em;
@@ -19,6 +17,7 @@ $bg-color-secondary: #555;
   justify-content: center;
   align-content: center;
   align-items: center;
+  order: 2;
 
   p {
     text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
@@ -29,9 +28,23 @@ $bg-color-secondary: #555;
     font-size: 0.9rem;
   }
 
-  @media (max-width: 650px) {
-    font-size: 0.75rem;
+  @media (max-width: 700px) {
     padding: 0;
+  }
+
+  @media (max-width: 600px) {
+    flex-grow: 1;
+
+    align-content: flex-end;
+    align-items: flex-end;
+
+    height: 50%;
+    width: 50%;
+    margin-right: 1.2rem;
+  }
+
+  @media (max-width: 500px) {
+    margin-right: 0.75rem;
   }
 }
 
@@ -47,21 +60,21 @@ $bg-color-secondary: #555;
   transition: opacity 0.2s;
 
   @media (max-width: 900px) {
-    height: 1.2rem;
+    width: 26vw;
   }
 
-  @media (max-width: 650px) {
-    height: 1.35rem;
-  }
-
-  @media (max-width: 550px) {
+  @media (max-width: 700px) {
     height: 1.65rem;
-    width: 30vw;
+  }
+
+  @media (max-width: 600px) {
+    height: 4.5vh;
+    width: 28vw;
   }
 
   @media (max-width: 450px) {
-    height: 1.45rem;
-    width: 34vw;
+    height: 4.5vh;
+    width: 32vw;
   }
 }
 
@@ -79,22 +92,13 @@ $bg-color-secondary: #555;
     filter: hue-rotate(-20deg);
   }
 
-  @media (max-width: 900px) {
-    width: 1.3rem;
-    height: 1.3rem;
-  }
-  @media (max-width: 650px) {
-    width: 1.5rem;
-    height: 1.5rem;
+  @media (max-width: 700px) {
+    width: 1.85rem;
+    height: 1.85rem;
   }
 
-  @media (max-width: 550px) {
-    width: 1.75rem;
-    height: 1.75rem;
-  }
-
-  @media (max-width: 450px) {
-    width: 1.6rem;
-    height: 1.6rem;
+  @media (max-width: 600px) {
+    height: 5vh;
+    width: 5vh;
   }
 }

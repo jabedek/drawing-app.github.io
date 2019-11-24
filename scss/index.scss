@@ -3,10 +3,15 @@
 @import './brush-palette.scss';
 @import './buttons.scss';
 @import './canvas.scss';
+@import './animations.scss';
 
 $color: white;
 $bg-color-primary: #444;
 $bg-color-secondary: #555;
+
+* {
+  box-sizing: border-box;
+}
 
 html,
 body,
@@ -15,7 +20,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 .app {
@@ -24,7 +29,6 @@ body,
   flex-direction: column;
   font-family: 'Roboto Light';
   text-transform: uppercase;
-  height: 100vh;
 }
 
 .appVersion {

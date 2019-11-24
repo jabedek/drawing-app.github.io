@@ -24,6 +24,7 @@
       <canvas id="myCanvas" class="canvas"></canvas>
 
       <div class="user-interface">
+        <!-- COLOR PALETTE -->
         <ul class="color-palette">
           <li class="color__label">
             <p
@@ -79,6 +80,8 @@
             ></p>
           </li>
         </ul>
+
+        <!-- BRUSH PALETTE -->
         <label class="brush-palette">
           <p>Brush size: <span id="brushSize">5</span></p>
           <input
@@ -88,23 +91,21 @@
             value="5"
             step="2"
             class="slider"
-            id="myRange"
+            id="sliderRange"
           />
         </label>
 
+        <!-- BUTTONS -->
         <div class="buttons">
-          <a id="clearBtn" class="my-button"
-            ><i id="my-clear-icon" class="my-icon icon sync alternate  "></i>
-            clear <span class="word-part">area</span></a
-          >
+          <a id="clearBtn" class="my-button">
+            <i id="my-clear-icon" class="my-icon icon sync alternate"></i>
+            clear<span class="word-part"> area</span>
+          </a>
 
-          <a id="downloadBtn" class="my-button"
-            ><i
-              id="my-download-icon"
-              class="my-icon icon arrow down download-btn "
-            ></i>
-            save<span class="word-part"> image</span></a
-          >
+          <a id="saveBtn" class="my-button"
+            ><i id="my-save-icon" class="my-icon icon arrow down "></i>
+            save<span class="word-part"> image</span>
+          </a>
         </div>
       </div>
     </div>

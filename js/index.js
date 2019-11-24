@@ -26,25 +26,21 @@ function initApp() {
   canvas = document.getElementById('myCanvas');
   canvasCtx = canvas.getContext('2d');
 
-  if (window.screen.width <= 500) {
+  if (window.screen.width <= 600) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight * 0.65;
-    console.log('start: mobile', canvas.height);
   } else {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight / 1.2;
-    console.log('start: desktop');
   }
 
   window.onresize = e => {
-    if (window.screen.width <= 500) {
+    if (window.screen.width <= 600) {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight * 0.65;
-      console.log('mobile');
     } else {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight / 1.2;
-      console.log('desktop');
     }
   };
 
@@ -65,7 +61,6 @@ function initApp() {
 
   canvas.addEventListener(
     'touchstart',
-
     function(e) {
       mousePressed = true;
       console.log('touchstart');
@@ -78,6 +73,7 @@ function initApp() {
     },
     false
   );
+
   canvas.addEventListener(
     'touchend',
     function(e) {
@@ -146,49 +142,50 @@ function initApp() {
     mousePressed = false;
   });
 
-  /* ### TOOLS ### */
-  /* attach mouse events to CLEAR button */
+  /* CLEAR button events */
   let clearBtn = document.getElementById('clearBtn');
 
-  $('#clearBtn').on('mouseover', e => {
-    let icon = document.getElementById('my-clear-icon');
-    icon.classList.toggle('spin');
-  });
-
-  $('#clearBtn').on('mouseout', e => {
-    let icon = document.getElementById('my-clear-icon');
-    icon.classList.toggle('spin');
-  });
   clearBtn.addEventListener('click', clearArea);
 
-  /* attach mouse events to DOWNLOAD button */
-  let downloadBtn = document.getElementById('downloadBtn');
+  clearBtn.addEventListener('mouseover', e => {
+    let icon = document.getElementById('my-clear-icon');
+    icon.classList.toggle('spin');
+  });
 
-  downloadBtn.addEventListener('mouseover', e => {
-    let icon = document.getElementById('my-download-icon');
+  clearBtn.addEventListener('mouseout', e => {
+    let icon = document.getElementById('my-clear-icon');
+    icon.classList.toggle('spin');
+  });
+
+  /* SAVE button events */
+  let saveBtn = document.getElementById('saveBtn');
+
+  saveBtn.addEventListener('mouseover', e => {
+    let icon = document.getElementById('my-save-icon');
     icon.classList.toggle('slide-down');
   });
 
-  downloadBtn.addEventListener('mouseout', e => {
-    let icon = document.getElementById('my-download-icon');
+  saveBtn.addEventListener('mouseout', e => {
+    let icon = document.getElementById('my-save-icon');
     icon.classList.toggle('slide-down');
   });
 
-  downloadBtn.addEventListener(
+  saveBtn.addEventListener(
     'click',
     function(ev) {
       console.log(
         '%cSAVING',
         "background: firebrick; font-family:'Roboto Light'; font-weight: bold; color:white"
       );
-      downloadBtn.href = canvas.toDataURL('image/png');
-      downloadBtn.download = 'image.png';
+      saveBtn.href = canvas.toDataURL('image/png');
+      saveBtn.download = 'image.png';
     },
     false
   );
 
-  /* RANGE display */
-  $('#myRange').on('change', e => {
+  /* RANGE events */
+
+  document.getElementById('sliderRange').addEventListener('change', e => {
     document.getElementById('brushSize').innerHTML = e.target.value;
   });
 }
@@ -196,7 +193,7 @@ function initApp() {
 function draw(x, y, isDrawing) {
   if (isDrawing) {
     canvasCtx.strokeStyle = brushColor;
-    canvasCtx.lineWidth = $('#myRange').val();
+    canvasCtx.lineWidth = $('#sliderRange').val();
     canvasCtx.lineJoin = 'round';
 
     canvasCtx.beginPath();

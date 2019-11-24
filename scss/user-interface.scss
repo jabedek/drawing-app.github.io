@@ -3,20 +3,25 @@ $bg-color-primary: #444;
 $bg-color-secondary: #555;
 
 .user-interface {
-  margin: 0.6em 0;
-  padding: 0;
+  margin: 0.3em;
+  padding: 0.3em;
+
+  height: 100%;
+  background: $bg-color-secondary;
 
   display: flex;
-  height: 15%;
   flex-direction: row;
   justify-content: space-around;
   align-content: center;
   align-items: center;
-  background: $bg-color-secondary;
 
-  border: 1px solid cyan;
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0.5em 2em;
+  }
 
   @media (max-width: 500px) {
-    height: 50%;
+    padding: 0.5em 1em;
   }
 }
