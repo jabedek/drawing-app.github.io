@@ -3,7 +3,7 @@
 # dependencies
 /node_modules
 /js
-/css
+/scss
 /.pnp
 .pnp.js
 
