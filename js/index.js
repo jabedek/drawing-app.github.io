@@ -6,13 +6,16 @@ let brushColor = '#000';
 let brushSize = 5;
 
 function initApp() {
-  /* mouse position display setup */
-  let mousePos = document.getElementById('mousePos');
-  mousePos.style = 'display: block;';
+  /* app version and mouse position displays setup */
+  // let appVersion = document.getElementById('appVersion');
+  // appVersion.style = 'display: block;';
+
+  // let mousePos = document.getElementById('mousePos');
+  // mousePos.style = 'display: block;';
 
   window.addEventListener('touchmove', e => {
-    let touchX = (e.touches[0].pageX + '').substr(0, 3);
-    let touchY = (e.touches[0].pageY + '').substr(0, 3);
+    let touchX = (e.touches[0].pageX + '').substr(0, 7);
+    let touchY = (e.touches[0].pageY + '').substr(0, 7);
     let pos = 'X:' + touchX + '\n' + 'Y:' + touchY;
     mousePos.innerHTML = pos;
   });
