@@ -6,12 +6,24 @@ let brushColor = '#000';
 let brushSize = 5;
 
 function initApp() {
-  /* app version and mouse position displays setup */
-  // let appVersion = document.getElementById('appVersion');
-  // appVersion.style = 'display: block;';
+  /* app version, mouse position, viewport displays setup */
+  let appVersion = document.getElementById('appVersion');
+  appVersion.style = 'display: block;';
 
-  // let mousePos = document.getElementById('mousePos');
-  // mousePos.style = 'display: block;';
+  let mousePos = document.getElementById('mousePos');
+  mousePos.style = 'display: block;';
+
+  let viewport = document.getElementById('viewport');
+  viewport.style = 'display: block;';
+
+  let viewportInfo =
+    'viewport window size: ' +
+    window.innerHeight +
+    'px / ' +
+    window.innerWidth +
+    'px';
+
+  viewport.innerHTML = viewportInfo;
 
   window.addEventListener('touchmove', e => {
     let touchX = (e.touches[0].pageX + '').substr(0, 7);
@@ -155,6 +167,11 @@ function initApp() {
   });
 
   saveBtn.addEventListener('mouseout', e => {
+    let icon = document.getElementById('my-save-icon');
+    icon.classList.toggle('slide-down');
+  });
+
+  saveBtn.addEventListener('blur', e => {
     let icon = document.getElementById('my-save-icon');
     icon.classList.toggle('slide-down');
   });
